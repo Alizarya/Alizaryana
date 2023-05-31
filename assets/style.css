@@ -7,6 +7,7 @@
 
 body {
   overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 section{
@@ -27,6 +28,53 @@ section{
   --oswald: 'Oswald', sans-serif;
   --roboto: 'Roboto', sans-serif;
 }
+
+/* GESTION DU HEADER ET DU FOOTER */
+
+header, footer {
+  position: fixed;
+  left: 3%;
+  right: 3%;
+  color: var(--violet-clair);
+  transition: opacity 0.4s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  opacity: 1;
+}
+
+.header-hidden, .footer-hidden{
+  opacity: 0;
+}
+
+header i, footer i {
+  font-size: 30px;
+  transition: transform 0.3s; 
+}
+
+footer i:hover, header i:hover{
+  color: var(--jaune);
+  transform: scale(1.1);
+}
+
+header {
+  top: 3%;
+}
+
+footer {
+  bottom: 3%;
+}
+
+footer p {
+  font-style: italic;
+}
+
+.reseauxSociaux {
+  display: flex;
+  gap: 0.5em;
+}
+
+
+
 
 /* Toutes les id des sections impaires */
 #accueil:nth-of-type(odd),
@@ -50,17 +98,7 @@ section{
   color: var(--bleu-clair);
 }
 
-
-header {
-  position: fixed;
-  right: 5%;
-  top: 5%;
-  color: var(--violet-clair);
-  font-size: 30px;
-  transition: opacity 0.4s ease-in-out;
-  opacity: 1;
+section {
+  padding: 7%;
 }
 
-.header-hidden {
-  opacity: 0;
-}
