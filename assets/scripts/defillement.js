@@ -8,14 +8,14 @@ $(document).ready(function () {
   let footer = $("footer");
   let nav = $("nav");
 
-  // Fonction pour animer le déplacement du header, du footer, et de la nav hors de l'écran
+  // Animation de la transparence du header, du footer, et de la nav
   function animateElementsOut() {
     header.addClass("fade");
     footer.addClass("fade");
     nav.addClass("fade");
   }
 
-  // Fonction pour animer le retour du header, du footer, et de la nav sur l'écran
+  // Animation du retour du header, du footer, et de la nav
   function animateElementsIn() {
     header.removeClass("fade");
     footer.removeClass("fade");

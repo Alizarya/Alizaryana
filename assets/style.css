@@ -11,7 +11,7 @@ body {
   overflow-x: hidden;
 }
 
-section{
+section, .menu{
   height: 100vh;
   width: 100vw;
 }
@@ -30,8 +30,22 @@ section{
   --roboto: 'Roboto', sans-serif;
 }
 
-/* GESTION DU HEADER ET DU FOOTER */
+/* GESTION DU MENU */
+.menu {
+  background: var(--bleu-fonce);
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: top 0.5s ease-in-out;
+}
 
+.menu.active {
+  top: 0;
+}
+
+/* GESTION DU HEADER ET DU FOOTER */
 header, footer {
   position: fixed;
   left: 2%;
