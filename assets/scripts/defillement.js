@@ -25,18 +25,25 @@ $(document).ready(function () {
     if (currentSection % 2 === 1) {
       header.css("color", "var(--bleu-clair)");
       footer.css("color", "var(--bleu-clair)");
-      $("img").attr("src", "./assets/images/logos/logo-bleu.png");
       nav.css("color", "var(--bleu-clair)");
+      $("img").attr("src", "./assets/images/logos/logo-bleu.png");
     } else {
       header.css("color", "var(--violet-clair)");
       footer.css("color", "var(--violet-clair)");
-      $("img").attr("src", "./assets/images/logos/logo-violet.png");
       nav.css("color", "var(--violet-clair)");
+      $("img").attr("src", "./assets/images/logos/logo-violet.png");
     }
 
     // Ajouter la classe active à l'icône correspondante à la section actuelle
     nav.find("i").removeClass("active");
     nav.find("i").eq(currentSection).addClass("active");
+
+    // Masquer la navigation sur la première section
+    if (currentSection === 0) {
+      nav.css("display", "none");
+    } else {
+      nav.css("display", "flex");
+    }
   }
 
   // Fonction pour faire défiler les sections
@@ -54,10 +61,10 @@ $(document).ready(function () {
       );
       currentSection = index;
 
-      // Animation du header et du footer lors du défilement
+      // Animation lors du défilement
       animateElementsOut();
 
-      // Réapparition du header et du footer après 1 seconde
+      // Réapparition après 1 seconde
       setTimeout(function () {
         animateElementsIn();
       }, 1000);
