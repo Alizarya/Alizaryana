@@ -10,15 +10,22 @@ $(document).ready(function () {
 
   // Fonction pour animer le déplacement du header hors de l'écran
   function animateHeaderOut() {
-    header.addClass("header-hidden"); // Ajoute la classe pour masquer le header (fondu)
+    header.addClass("header-hidden"); // Ajoute la classe pour masquer le header
   }
 
   // Fonction pour animer le retour du header sur l'écran
   function animateHeaderIn() {
     header.removeClass("header-hidden"); // Supprime la classe pour afficher le header
+
+    // Gestion de la couleur d'affichage en fonction de la parité de la section
+    if (currentSection % 2 === 1) {
+      header.css("color", "var(--bleu-clair)");
+    } else {
+      header.css("color", "var(--violet-clair)");
+    }
   }
 
-  // Fonction pour faire défiler vers une section spécifique
+  // Fonction pour faire défiler les sections
   function scrollToSection(index) {
     if (index >= 0 && index < sections.length && !isScrolling) {
       isScrolling = true;
