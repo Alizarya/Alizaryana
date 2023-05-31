@@ -3,10 +3,11 @@ $(document).ready(function () {
   let currentSection = 0;
   let isScrolling = false;
 
-  // Variables pour gérer l'animation du header, du footer, et de la nav
+  // Variables pour gérer les animations et les changements de couleur
   let header = $("header");
   let footer = $("footer");
   let nav = $("nav");
+  let menu = $("#menu");
 
   // Animation de la transparence du header, du footer, et de la nav
   function animateElementsOut() {
@@ -27,11 +28,13 @@ $(document).ready(function () {
       footer.css("color", "var(--bleu-clair)");
       nav.css("color", "var(--bleu-clair)");
       $("img").attr("src", "./assets/images/logos/logo-bleu.png");
+      menu.css("background-color", "var(--violet-fonce)");
     } else {
       header.css("color", "var(--violet-clair)");
       footer.css("color", "var(--violet-clair)");
       nav.css("color", "var(--violet-clair)");
       $("img").attr("src", "./assets/images/logos/logo-violet.png");
+      menu.css("background-color", "var(--bleu-fonce)");
     }
 
     // Ajouter la classe active à l'icône correspondante à la section actuelle
