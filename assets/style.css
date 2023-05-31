@@ -52,9 +52,15 @@ section{
 
 
 header {
-position: absolute;
-right: 5%;
-color: white;
-top: 5%;
-font-size: 30px;
+  position: fixed;
+  right: 5%;
+  top: 5%;
+  color: white;
+  font-size: 30px;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.header-hidden {
+  opacity: 0;
 }

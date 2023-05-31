@@ -1,35 +1,57 @@
 $(document).ready(function () {
-  let sections = $(".full-section"); // Sélectionne toutes les sections avec la classe "full-section"
-  let currentSection = 0; // Initialise l'index de la section courante à 0
-  let isScrolling = false; // Variable pour vérifier si le défilement est en cours
+  let sections = $(".full-section");
+  let currentSection = 0;
+  let isScrolling = false;
 
+  // Variables pour gérer l'animation du header
+  let header = $("header");
+  let headerWidth = header.outerWidth();
+  let windowWidth = $(window).width();
+
+  // Fonction pour animer le déplacement du header hors de l'écran
+  function animateHeaderOut() {
+    header.addClass("header-hidden"); // Ajoute la classe pour masquer le header (fondu)
+  }
+
+  // Fonction pour animer le retour du header sur l'écran
+  function animateHeaderIn() {
+    header.removeClass("header-hidden"); // Supprime la classe pour afficher le header
+  }
+
+  // Fonction pour faire défiler vers une section spécifique
   function scrollToSection(index) {
     if (index >= 0 && index < sections.length && !isScrolling) {
-      isScrolling = true; // Définit la variable de défilement en cours à true
+      isScrolling = true;
       $("html, body").animate(
         {
-          scrollTop: sections.eq(index).offset().top, // Anime le défilement vers la position de la section spécifiée
+          scrollTop: sections.eq(index).offset().top,
         },
-        1000, // Durée de l'animation en millisecondes
+        1000,
         function () {
-          isScrolling = false; // Définit la variable de défilement en cours à false une fois l'animation terminée
+          isScrolling = false;
         }
       );
-      currentSection = index; // Met à jour l'index de la section courante
+      currentSection = index;
+
+      // Animation du header lors du défilement
+      animateHeaderOut();
+
+      // Réapparition du header après 1 seconde
+      setTimeout(function () {
+        animateHeaderIn();
+      }, 1000);
     }
   }
 
   $(window).on("wheel", function (event) {
-    let delta = event.originalEvent.deltaY; // Récupère la valeur du déplacement de la molette
+    let delta = event.originalEvent.deltaY;
 
     if (delta > 0) {
-      // Faites défiler vers le bas
-      scrollToSection(currentSection + 1); // Appelle la fonction pour faire défiler vers la section suivante
-      event.preventDefault(); // Empêche le comportement par défaut du défilement
+      scrollToSection(currentSection + 1);
+      event.preventDefault();
     } else {
-      // Faites défiler vers le haut
-      scrollToSection(currentSection - 1); // Appelle la fonction pour faire défiler vers la section précédente
-      event.preventDefault(); // Empêche le comportement par défaut du défilement
+      scrollToSection(currentSection - 1);
+      event.preventDefault();
     }
   });
 });
