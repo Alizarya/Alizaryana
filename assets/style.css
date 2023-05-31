@@ -1,0 +1,60 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--roboto);
+}
+
+body {
+  overflow-y: hidden;
+}
+
+section{
+  height: 100vh;
+  width: 100vw;
+}
+
+:root {
+  /* Variables des couleurs */
+  --violet-fonce: #551860;
+  --violet-clair: #e4cae9;
+  --bleu-fonce: #244a68;
+  --bleu-clair: #d8eaee;
+  --jaune: #ffce2f;
+  --beige: #fbe6e4;
+
+  /* Variables des polices */
+  --oswald: 'Oswald', sans-serif;
+  --roboto: 'Roboto', sans-serif;
+}
+
+/* Toutes les id des sections impaires */
+#accueil:nth-of-type(odd),
+#prestations:nth-of-type(odd),
+#aPropos:nth-of-type(odd),
+#portefolio:nth-of-type(odd),
+#recommandations:nth-of-type(odd),
+#contact:nth-of-type(odd){
+  background-color: var(--violet-fonce);
+  color: var(--violet-clair);
+}
+
+/* Toutes les id des sections paires */
+#accueil:nth-of-type(even),
+#prestations:nth-of-type(even),
+#aPropos:nth-of-type(even),
+#portefolio:nth-of-type(even),
+#recommandations:nth-of-type(even),
+#contact:nth-of-type(even){
+  background-color: var(--bleu-fonce);
+  color: var(--bleu-clair);
+}
+
+
+header {
+position: absolute;
+right: 5%;
+color: white;
+top: 5%;
+font-size: 30px;
+}
