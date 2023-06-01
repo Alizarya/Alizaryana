@@ -8,6 +8,7 @@ $(document).ready(function () {
   let footer = $("footer");
   let nav = $("nav");
   let menu = $("#menu");
+  let menuDiv = $(".menu");
 
   // Animation de la transparence du header, du footer, et de la nav
   function animateElementsOut() {
@@ -78,6 +79,26 @@ $(document).ready(function () {
   nav.find("i").on("click", function () {
     let index = $(this).index();
     scrollToSection(index);
+  });
+
+  // Gestion du clic sur les liens du menu
+  const menuLinks = $(".menu-nav--link .--link");
+
+  menuLinks.each(function () {
+    const sectionIndex = $(this).index();
+
+    $(this).on("click", () => {
+      // Fermer le menu immédiatement et définir la transition à 0
+      menuDiv.removeClass("show").css("transition", "top 0s");
+
+      // Faire défiler vers la section correspondante
+      scrollToSection(sectionIndex);
+    });
+  });
+
+  // Code pour revenir à la section 0 lors du rafraîchissement de la page
+  $(window).on("beforeunload", function () {
+    $(window).scrollTop(0);
   });
 
   $(window).on("wheel", function (event) {
