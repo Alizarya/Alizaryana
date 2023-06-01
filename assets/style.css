@@ -6,6 +6,10 @@
   color: inherit; 
 }
 
+*:hover{
+  text-decoration: none;
+}
+
 body {
   overflow-y: hidden;
   overflow-x: hidden;
@@ -32,17 +36,124 @@ section, .menu{
 
 /* GESTION DU MENU */
 .menu {
-  background: var(--bleu-fonce);
+  background-color: var(--bleu-fonce);
   position: fixed;
   top: -100vh;
   left: 0;
   transition: top 0.8s ease-in-out;
   z-index: 10;
+  color: var(--beige);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.menu.active {
+.menu.show {
   top: 0;
 }
+.menu-header {
+  position: absolute;
+  width: 96%;
+  font-size: 40px;
+  display: flex;
+  justify-content: space-between;
+  margin: 2% 2% 2% 2%;
+}
+
+.menu-header img {
+  width: 40px;
+}
+
+.menu-main {
+  position: absolute;
+  width: 65%;
+  margin: 3% 20% 3% 15%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fox1 {
+  height: 85vh;
+}
+
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 36px;
+  margin: 3em 0;
+}
+
+.menu-nav--link{
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.8em;
+}
+
+.--link{
+  display: flex;
+  gap: 1em;
+  width: fit-content;
+}
+
+.--link i{
+  width: 43px;
+}
+
+.--link:hover {
+  cursor: pointer;
+  color: var(--jaune);
+}
+
+.--link p {
+  position: relative;
+  overflow: hidden;
+}
+
+.--link p::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 5px;
+  background-image: linear-gradient(to right, var(--jaune), var(--jaune));
+  transition: left 0.5s ease-in-out;
+}
+
+.--link p:hover::before {
+  left: 0;
+}
+
+.carteVisite {
+  color: black;
+  background-color: var(--beige);
+  font-size: 32px;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  transition: transform 0.3s; 
+}
+
+.carteVisite:hover{
+  background-color: var(--jaune);
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.menu-footer {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  left: 2%;
+  right: 2%;
+  bottom: 2%;
+}
+
+.menu-footer img {
+  width: 40px;
+  cursor: pointer;
+}
+
 
 /* GESTION DU HEADER ET DU FOOTER */
 header, footer {
@@ -60,18 +171,18 @@ header, footer {
   opacity: 0;
 }
 
-header i, footer i {
+header i, footer i, .menu-header i {
   font-size: 40px;
   transition: transform 0.3s; 
 }
 
-footer i:hover, header i:hover, nav i:hover{
+footer i:hover, header i:hover, nav i:hover, .menu-header i:hover{
   color: var(--jaune);
   transform: scale(1.1);
   cursor: pointer;
 }
 
-header {
+header{
   top: 3%;
 }
 
@@ -88,7 +199,7 @@ header img {
   font-style: italic;
 }
 
-footer p:last-child {
+footer p:last-child, .menu-footer p:last-child {
   font-size: 12px;
 }
 

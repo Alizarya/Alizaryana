@@ -27,13 +27,13 @@ $(document).ready(function () {
       header.css("color", "var(--bleu-clair)");
       footer.css("color", "var(--bleu-clair)");
       nav.css("color", "var(--bleu-clair)");
-      $("img").attr("src", "./assets/images/logos/logo-bleu.png");
+      header.find("img").attr("src", "./assets/images/logos/logo-bleu.png");
       menu.css("background-color", "var(--violet-fonce)");
     } else {
       header.css("color", "var(--violet-clair)");
       footer.css("color", "var(--violet-clair)");
       nav.css("color", "var(--violet-clair)");
-      $("img").attr("src", "./assets/images/logos/logo-violet.png");
+      header.find("img").attr("src", "./assets/images/logos/logo-violet.png");
       menu.css("background-color", "var(--bleu-fonce)");
     }
 
