@@ -156,6 +156,7 @@ header, footer {
   display: flex;
   justify-content: space-between;
   opacity: 1;
+  z-index: 5;
 }
 
 .fade {
@@ -211,6 +212,7 @@ nav {
   font-size: 20px;
   opacity: 1;
   transition: opacity 0.4s ease-in-out;
+  z-index: 5;
 }
 
 nav i{
@@ -227,8 +229,8 @@ nav i{
 /* Toutes les id des sections impaires */
 #accueil:nth-of-type(odd),
 #prestations:nth-of-type(odd),
-#aPropos:nth-of-type(odd),
 #portefolio:nth-of-type(odd),
+#creations:nth-of-type(odd),
 #recommandations:nth-of-type(odd),
 #contact:nth-of-type(odd){
   background-color: var(--violet-fonce);
@@ -238,8 +240,8 @@ nav i{
 /* Toutes les id des sections paires */
 #accueil:nth-of-type(even),
 #prestations:nth-of-type(even),
-#aPropos:nth-of-type(even),
 #portefolio:nth-of-type(even),
+#creations:nth-of-type(even),
 #recommandations:nth-of-type(even),
 #contact:nth-of-type(even){
   background-color: var(--bleu-fonce);
@@ -250,3 +252,16 @@ section {
   padding: 7%;
 }
 
+.full-section {
+  position: relative;
+}
+
+.full-section:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+}
