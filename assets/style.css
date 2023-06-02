@@ -51,17 +51,21 @@ section, .menu{
 .menu.show {
   top: 0;
 }
-.menu-header {
+
+.menu-header, .menu-footer {
   position: absolute;
-  width: 96%;
-  font-size: 40px;
   display: flex;
   justify-content: space-between;
-  margin: 2% 2% 2% 2%;
+  left: 2%;
+  right: 2%;
 }
 
-.menu-header img {
-  width: 40px;
+.menu-header{
+  top: 2%;
+}
+
+.menu-footer{
+  bottom: 2%;
 }
 
 .menu-main {
@@ -94,10 +98,6 @@ section, .menu{
   display: flex;
   gap: 1em;
   width: fit-content;
-}
-
-.--link i{
-  width: 43px;
 }
 
 .--link:hover {
@@ -138,15 +138,6 @@ section, .menu{
   background-color: var(--jaune);
   cursor: pointer;
   transform: scale(1.05);
-}
-
-.menu-footer {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  left: 2%;
-  right: 2%;
-  bottom: 2%;
 }
 
 .menu-footer img {
@@ -190,7 +181,7 @@ footer {
   bottom: 3%;
 }
 
-header img {
+header img, .menu-header img, .--link i {
   width: 40px;
 }
 
