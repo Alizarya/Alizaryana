@@ -45,10 +45,10 @@ $(document).ready(function () {
     // Masquer la navigation sur la première section
     if (currentSection === 0) {
       nav.css("display", "none");
-      $(".scroll").css("display", "flex");
+      $(".scrollDown").css("display", "flex");
     } else {
       nav.css("display", "flex");
-      $(".scroll").css("display", "none");
+      $(".scrollDown").css("display", "none");
     }
   }
 
@@ -80,7 +80,7 @@ $(document).ready(function () {
   // Gestion de l'affichage de l'élément #scroll
 
   // Gestion du clic sur l'icone de scroll
-  $(".scroll").on("click", function () {
+  $(".scrollDown").on("click", function () {
     scrollToSection(currentSection + 1);
   });
 
