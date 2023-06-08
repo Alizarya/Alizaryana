@@ -128,7 +128,8 @@ section, .menu{
 .carteVisite {
   color: black;
   background-color: var(--beige);
-  font-size: 32px;
+  font-size: 24px;
+  width: fit-content;
   padding: 0.5em;
   border-radius: 0.5em;
   transition: transform 0.3s; 
@@ -204,9 +205,9 @@ footer p:last-child, .menu-footer p:last-child {
 nav {
   position: fixed;
   right: 2%;
-  top: 33%;
-  color: var(--violet-clair);
-  display: flex;
+  top: 50%; 
+  transform: translateY(-50%);
+  display: none;
   flex-direction: column;
   gap: 1.3em;
   font-size: 20px;
@@ -227,36 +228,22 @@ nav i{
 /* GESTION DES SECTIONS EN FONCTION DE LEUR PARITÉ */
 
 /* Toutes les id des sections impaires */
-#accueil:nth-of-type(odd),
-#prestations:nth-of-type(odd),
-#portefolio:nth-of-type(odd),
-#creations:nth-of-type(odd),
-#recommandations:nth-of-type(odd),
-#contact:nth-of-type(odd){
+.full-section:nth-of-type(odd){
   background-color: var(--violet-fonce);
   color: var(--violet-clair);
 }
 
 /* Toutes les id des sections paires */
-#accueil:nth-of-type(even),
-#prestations:nth-of-type(even),
-#portefolio:nth-of-type(even),
-#creations:nth-of-type(even),
-#recommandations:nth-of-type(even),
-#contact:nth-of-type(even){
+.full-section:nth-of-type(even){
   background-color: var(--bleu-fonce);
   color: var(--bleu-clair);
-}
-
-section {
-  padding: 7%;
 }
 
 .full-section {
   position: relative;
 }
 
-.full-section:before {
+.full-section:before, .menu:before {
   content: "";
   position: absolute;
   top: 0;
@@ -264,4 +251,77 @@ section {
   width: 100%;
   height: 100%;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+}
+
+
+/* GESTION DU CONTENU DES PAGES*/
+.section-page {
+  position: absolute;
+  top: 7%;
+  left: 6%;
+  right: 6%;
+  bottom: 10%;
+  padding: 0;
+  /*background-color: aquamarine;*/
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/*
+.section-page > * {
+  border: 1px solid black;
+}*/
+
+.section-page--header {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+h1, h2, h3 {
+text-transform: uppercase;
+font-family: var(--oswald);
+font-weight: bold;
+}
+
+h1 {
+  font-size: 56px;
+  color: var(--jaune);
+}
+
+h2 {
+  font-size: 50px;
+  display: inline-block;
+}
+
+section:nth-of-type(even) h2{
+  background-color: var(--bleu-clair);
+  color: var(--bleu-fonce);
+}
+
+section:nth-of-type(odd) h2{
+  background-color: var(--violet-clair);
+  color: var(--violet-fonce);
+}
+
+.accroche {
+  margin-top: 10px;
+}
+
+section:nth-of-type(even) .accroche{
+  color: var(--bleu-clair);
+}
+
+section:nth-of-type(odd) .accroche{
+  color: var(--violet-clair);
+}
+
+.px24 {
+  font-size: 24px;
+}
+
+.section-page p {
+  font-family: var(--roboto);
 }
