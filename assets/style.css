@@ -4,6 +4,8 @@
   padding: 0;
   font-family: var(--roboto);
   color: inherit; 
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 *:hover{
@@ -34,6 +36,7 @@ section, .menu{
   --roboto: 'Roboto', sans-serif;
 }
 
+/*____________________________________*/
 /* GESTION DU MENU */
 .menu {
   background-color: var(--bleu-fonce);
@@ -146,7 +149,7 @@ section, .menu{
   cursor: pointer;
 }
 
-
+/*____________________________________*/
 /* GESTION DU HEADER ET DU FOOTER */
 header, footer {
   position: fixed;
@@ -201,6 +204,7 @@ footer p:last-child, .menu-footer p:last-child {
   gap: 0.5em;
 }
 
+/*____________________________________*/
 /* GESTION DE LA NAV BAR*/
 nav {
   position: fixed;
@@ -224,16 +228,14 @@ nav i{
   color: var(--jaune);
 }
 
-
+/*____________________________________*/
 /* GESTION DES SECTIONS EN FONCTION DE LEUR PARITÉ */
 
-/* Toutes les id des sections impaires */
 .full-section:nth-of-type(odd){
   background-color: var(--violet-fonce);
   color: var(--violet-clair);
 }
 
-/* Toutes les id des sections paires */
 .full-section:nth-of-type(even){
   background-color: var(--bleu-fonce);
   color: var(--bleu-clair);
@@ -253,25 +255,21 @@ nav i{
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
 }
 
-
+/*____________________________________*/
 /* GESTION DU CONTENU DES PAGES*/
-.section-page {
+.page {
   position: absolute;
   top: 7%;
   left: 6%;
   right: 6%;
-  bottom: 10%;
+  bottom: 12%;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
-
-.section-page--header {
-  grid-column: span 2;
-  grid-row: span 1;
+.page-header {
+  max-width: 66%;
 }
 
 h1, h2, h3 {
@@ -312,10 +310,6 @@ section:nth-of-type(odd) h2{
   color: var(--violet-fonce);
 }
 
-.accroche {
-  margin-top: 10px;
-}
-
 section:nth-of-type(even) p{
   color: var(--bleu-clair);
 }
@@ -324,31 +318,104 @@ section:nth-of-type(odd) p{
   color: var(--violet-clair);
 }
 
+.accroche {
+  margin-top: 10px;
+}
+
 .px24 {
   font-size: 24px;
 }
 
 
-.section-page--main {
-  grid-column: span 3;
-  grid-row: span 2;
+.page-main {
+  height: 66%;
+  width: 100%;
+  display: flex;
+  margin-top: 70px;
 }
-
-/* MES PRESTATIONS */
 
 article {
   width: 66%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 aside {
   width: 33%;
-  background-color: var(--bleu-clair);
 }
+
+/*____________________________________*/
+/* ACCUEIL */
+
+#accueil .page {
+  flex-direction: row;
+  margin: auto;
+}
+
+#accueil aside{
+  width: 45%;
+}
+
+aside img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#accueil article {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+#accueil h1, #accueil h3 {
+  font-size: 60px;
+}
+
+#accueil h2 {
+  font-size: 90px;
+  background-color: var(--beige);
+  width: fit-content;
+  padding: 0 10px;
+}
+
+#accueil h3 {
+width: 70%;
+}
+
+.presentation p {
+  margin-bottom: 0.5em;
+  text-align: justify;
+  font-size: 24px;
+}
+
+/*____________________________________*/
+/* MES PRESTATIONS */
 
 .services {
-  width: 100%;
+  width: 50%;
 }
 
+.outils {
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+}
+
+.outils-logo {
+  display: flex;
+  gap: 20px
+}
+
+.outils-logo i {
+  color: var(--bleu-clair);
+  font-size: 40px;
+}
+
+.outils-logo i:hover {
+  color: var(--jaune);
+
+}
