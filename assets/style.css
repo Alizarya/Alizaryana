@@ -466,8 +466,13 @@ width: 70%;
   transform: translateY(100%); /* Déplace le texte vers le bas (hors de la vue) */
 }
 
+#portefolio article:hover{
+  cursor: pointer;
+}
+
 #portefolio article:hover .projet-image {
   height: 150px; /* Hauteur de l'image au survol */
+  border-bottom: 5px solid var(--jaune);
 }
 
 #portefolio article:hover .projet-text {
