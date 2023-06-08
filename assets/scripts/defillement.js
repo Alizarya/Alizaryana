@@ -45,8 +45,10 @@ $(document).ready(function () {
     // Masquer la navigation sur la première section
     if (currentSection === 0) {
       nav.css("display", "none");
+      $(".scroll").css("display", "flex");
     } else {
       nav.css("display", "flex");
+      $(".scroll").css("display", "none");
     }
   }
 
@@ -74,6 +76,13 @@ $(document).ready(function () {
       }, 1000);
     }
   }
+
+  // Gestion de l'affichage de l'élément #scroll
+
+  // Gestion du clic sur l'icone de scroll
+  $(".scroll").on("click", function () {
+    scrollToSection(currentSection + 1);
+  });
 
   // Gestion du clic sur les icônes de la navigation
   nav.find("i").on("click", function () {

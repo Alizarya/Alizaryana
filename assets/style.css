@@ -203,6 +203,28 @@ footer p:last-child, .menu-footer p:last-child {
   gap: 0.5em;
 }
 
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.scroll  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: jump 2s infinite;
+}
+
+
+
 /*____________________________________*/
 /* GESTION DE LA NAV BAR*/
 nav {
