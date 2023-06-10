@@ -273,21 +273,27 @@
 				<div class="page-main">
 					<form>
 						<div class="form1">
-						  <h3 for="name">Prénom & Nom</h3>
+						  <h3 for="name">Prénom & Nom *</h3>
 						  <input type="text" id="name" name="name" required>
 							
 						  <h3 for="entreprise">Organisation/Entreprise</h3>
 						  <input type="text" id="entreprise" name="entreprise">
 					
-						  <h3 for="email">Adresse mail</h3>
+						  <h3 for="email">Adresse mail *</h3>
 						  <input type="email" id="email" name="email" required>
 						</div>
 						
 						<div class="form2">
-						  <h3 for="message">Votre message</h3>
-						  <textarea id="message" name="message" required></textarea>
-												
-						  <button type="submit">ENVOYER</button>
+						  	<h3 for="message">Votre message *</h3>
+						  	<textarea id="message" name="message" required></textarea>
+							<div class="form2-footer">					
+						  		<button type="submit">ENVOYER</button>
+								<div class="mentions">
+									<p>* Champs obligatoires</p>
+									<p id="RGPD">Mentions légales : quid de vos données ?</p>
+								</div>
+
+							</div>
 						</div>
 					  </form>
 
@@ -319,6 +325,7 @@
 	<script src="./assets/scripts/defillement.js"></script>
 	<script src="./assets/scripts/menu.js"></script>
 	<script src="./assets/scripts/gallery.js"></script>
+	<script src="./assets/scripts/RGPD.js"></script>
 
 
 </body>
