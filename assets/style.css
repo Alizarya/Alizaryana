@@ -525,11 +525,11 @@ width: 70%;
 /*____________________________________*/
 /* RECOMMANDATIONS */
 #recommandations .page-main{
-  gap: 150px;
+  gap: 100px;
 }
 
 .reco {
-  width: 40%;
+  width: 33%;
   display: flex;
   flex-direction: column;
   row-gap: 30px;
@@ -544,3 +544,68 @@ width: 70%;
 color: var(--jaune);
 font-size: 96px;
 }
+
+.reco h3 {
+  justify-self: end;
+}
+
+/*____________________________________*/
+/* CONTACT */
+
+form {
+  width: 100%;
+  display: flex;
+  gap: 150px;
+}
+
+.form1, .form2 {
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form1:focus, .form2:focus {
+  outline-color: var(--jaune)
+}
+
+  .form1 {
+    width: 30%;
+    
+  }
+  
+  .form2 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form1 input, .form2 textarea,   .form2 button {
+    width: 100%;
+    background-color: var(--bleu-clair);
+    margin-bottom: 1em;
+    color: var(--bleu-fonce);
+    font-size: 30px;
+    padding: 0.5em;
+  }
+
+  .form2 textarea {
+    font-size: 26px;
+    height: 20em;
+  }
+
+  .form2 button{
+    width: 25%;
+    text-transform: uppercase;
+font-family: var(--oswald);
+font-weight: bold;
+  }
+
+  .form2 button:hover{
+    background-color: var(--jaune);
+    cursor: pointer;
+  }
+
+  input:focus, textarea:focus {
+    outline: none; 
+    box-shadow: inset 0 0 0 5px var(--jaune);
+  }
