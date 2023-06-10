@@ -1,15 +1,59 @@
+// Récupérer la référence de la galerie
 const galleryContainer = document.getElementById("gallery-container");
-const images = galleryContainer.getElementsByTagName("img");
-const scrollSpeed = 0.8; // Vitesse de défilement (en pixels par frame)
-const delay = 2000; // Délai entre chaque défilement (en millisecondes)
-const scrollAmount = 500; // Quantité de défilement lors du clic sur les chevrons (en pixels)
+
+// Vitesse de défilement (en pixels par frame)
+const scrollSpeed = 0.8;
+
+// Délai entre chaque défilement (en millisecondes)
+const delay = 2000;
+
+// Quantité de défilement lors du clic sur les chevrons (en pixels)
+const scrollAmount = 500;
+
+// Chemin du fichier JSON contenant les données des images
+const jsonFilePath = "./assets/data/creations.json";
 
 let currentPosition = 0;
 let animationId;
 let isScrolling = false;
 
-// Dupliquer les images pour créer une boucle
-galleryContainer.innerHTML += galleryContainer.innerHTML;
+// Fonction pour mélanger l'ordre des éléments d'un tableau
+function shuffleArray(array) {
+  const newArray = array.slice();
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+}
+
+// Charger le fichier creations.json et afficher les images
+fetch(jsonFilePath)
+  .then((response) => response.json())
+  .then((data) => {
+    const creations = shuffleArray(data.creations);
+
+    for (let i = 0; i < creations.length; i++) {
+      const image = document.createElement("img");
+      image.src = creations[i].image;
+      image.alt = creations[i].alt;
+      galleryContainer.appendChild(image);
+    }
+
+    // Dupliquer les images pour créer une boucle
+    galleryContainer.innerHTML += galleryContainer.innerHTML;
+
+    // Démarrer le défilement automatique au chargement de la page
+    startScrolling();
+  })
+  .catch((error) => {
+    console.log(
+      "Une erreur s'est produite lors du chargement du fichier JSON :",
+      error
+    );
+  });
+
+const images = galleryContainer.getElementsByTagName("img");
 
 function scrollImages() {
   currentPosition += scrollSpeed;
@@ -36,7 +80,6 @@ function stopScrolling() {
   }
 }
 
-// Défiler vers la gauche lors du clic sur le chevron gauche
 function scrollLeft() {
   stopScrolling();
   currentPosition -= scrollAmount;
@@ -46,7 +89,6 @@ function scrollLeft() {
   galleryContainer.scrollLeft = currentPosition;
 }
 
-// Défiler vers la droite lors du clic sur le chevron droit
 function scrollRight() {
   stopScrolling();
   currentPosition += scrollAmount;
@@ -56,30 +98,23 @@ function scrollRight() {
   galleryContainer.scrollLeft = currentPosition;
 }
 
-// Démarrer le défilement automatique au chargement de la page
-startScrolling();
-
-// Arrêter le défilement lorsqu'un utilisateur survole la galerie
-galleryContainer.addEventListener("mouseenter", stopScrolling);
-galleryContainer.addEventListener("mouseleave", startScrolling);
-
-// Arrêter le défilement lorsqu'un utilisateur clique sur une image
-for (let i = 0; i < images.length; i++) {
-  images[i].addEventListener("click", stopScrolling);
-}
-
-// Redémarrer le défilement après un certain délai
 function restartScrolling() {
   setTimeout(startScrolling, delay);
 }
 
-// Redémarrer le défilement lorsqu'un utilisateur ne survole plus la galerie
+startScrolling();
+
+galleryContainer.addEventListener("mouseenter", stopScrolling);
+galleryContainer.addEventListener("mouseleave", startScrolling);
+
+for (let i = 0; i < images.length; i++) {
+  images[i].addEventListener("click", stopScrolling);
+}
+
 galleryContainer.addEventListener("mouseleave", restartScrolling);
 
-// Écouter les clics sur le chevron gauche
 const chevronLeft = document.querySelector(".fa-angle-left");
 chevronLeft.addEventListener("click", scrollLeft);
 
-// Écouter les clics sur le chevron droit
 const chevronRight = document.querySelector(".fa-angle-right");
 chevronRight.addEventListener("click", scrollRight);
