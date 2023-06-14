@@ -115,10 +115,8 @@ $(document).ready(function () {
 
     if (delta > 0) {
       scrollToSection(currentSection + 1);
-      event.preventDefault();
-    } else {
+    } else if (delta < 0) {
       scrollToSection(currentSection - 1);
-      event.preventDefault();
     }
   });
 });
