@@ -234,7 +234,7 @@ nav {
   transform: translateY(-50%);
   display: none;
   flex-direction: column;
-  gap: 1.3em;
+  gap: 1.8em;
   font-size: 20px;
   opacity: 1;
   transition: opacity 0.4s ease-in-out;
@@ -244,6 +244,24 @@ nav {
 nav i{
   transition: transform 0.3s; 
 }
+
+nav i[nav-label]::after {
+  content: attr(nav-label);
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-family: var(--roboto);
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+nav i[nav-label]:hover::after {
+  opacity: 1;
+}
+
 
 .active {
   color: var(--jaune);
