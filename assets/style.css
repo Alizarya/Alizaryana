@@ -166,12 +166,12 @@ header, footer {
   opacity: 0;
 }
 
-header i, footer i, .menu-header i {
+header i, footer i, .menu-header i, .outils-logo i{
   font-size: 40px;
   transition: transform 0.3s; 
 }
 
-footer i:hover, header i:hover, nav i:hover, .menu-header i:hover{
+footer i:hover, header i:hover, nav i:hover, .menu-header i:hover, .outils-logo i:hover{
   color: var(--jaune);
   transform: scale(1.1);
   cursor: pointer;
@@ -282,7 +282,7 @@ nav i{
   position: absolute;
   top: 7%;
   left: 6%;
-  right: 6%;
+  right: 8%;
   bottom: 12%;
   padding: 0;
   display: flex;
@@ -424,19 +424,43 @@ width: 70%;
   margin-left: 70px;
 }
 
-.outils-logo {
-  display: flex;
-  gap: 20px
+.outils h3{
+  align-self: center;
 }
 
-.outils-logo i {
-  color: var(--bleu-clair);
-  font-size: 40px;
+.outils-logo {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 }
+
+
 
 .outils-logo i:hover {
   color: var(--jaune);
 }
+
+.outils-box {
+  position: relative;
+  margin-top: 1em;
+}
+
+.outils-box > div {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+}
+
+
+.outils-box > div.activeTool {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+
 
 /*____________________________________*/
 /* MON PORTEFOLIO */
@@ -487,6 +511,10 @@ width: 70%;
 
 /*____________________________________*/
 /* MES CREATIONS - GALERIE DE DESSINS */
+
+#creations .page{
+  right: 4.1%;
+}
 
 #creations .page-main {
   overflow: hidden;
