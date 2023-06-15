@@ -687,3 +687,9 @@ font-weight: bold;
     cursor: pointer;
     color: var(--jaune);
   }
+
+  #returnedMessage {
+    font-size: 28px;
+    margin-left: 2.5em;
+    color: var(--jaune);
+  }

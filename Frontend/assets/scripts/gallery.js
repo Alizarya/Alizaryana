@@ -10,8 +10,8 @@ const delay = 2000;
 // Quantité de défilement lors du clic sur les chevrons (en pixels)
 const scrollAmount = 500;
 
-// Chemin du fichier JSON contenant les données des images
-const jsonFilePath = "./assets/data/creations.json";
+// URL de l'API pour récupérer les données des images
+const apiUrl = "http://localhost:5000/creations";
 
 let currentPosition = 0;
 let animationId;
@@ -27,28 +27,26 @@ function shuffleArray(array) {
   return newArray;
 }
 
-// Charger le fichier creations.json et afficher les images
-fetch(jsonFilePath)
+// Charger les données depuis l'API et afficher les images
+fetch(apiUrl)
   .then((response) => response.json())
   .then((data) => {
-    const creations = shuffleArray(data.creations);
+    const creations = shuffleArray(data);
 
     for (let i = 0; i < creations.length; i++) {
       const image = document.createElement("img");
-      image.src = creations[i].image;
+      const imageUrl =
+        "http://localhost:5000" + creations[i].image.replace(".", "");
+      image.src = imageUrl;
       image.alt = creations[i].alt;
       galleryContainer.appendChild(image);
     }
 
-    // Dupliquer les images pour créer une boucle
-    galleryContainer.innerHTML += galleryContainer.innerHTML;
-
-    // Démarrer le défilement automatique au chargement de la page
-    startScrolling();
+    // ...
   })
   .catch((error) => {
     console.log(
-      "Une erreur s'est produite lors du chargement du fichier JSON :",
+      "Une erreur s'est produite lors de la récupération des données :",
       error
     );
   });
