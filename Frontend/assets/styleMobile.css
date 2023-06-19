@@ -1,0 +1,42 @@
+/* En dessous de 768px */
+@media (max-width: 48em) {
+    body {
+        overflow-y: scroll;
+    }
+
+   section {
+       height: fit-content;
+    }
+
+    section, .full-section, .page, .full-section:before, .menu:before{
+        position:inherit ;
+        margin-bottom: 7vh;
+    }
+
+    header, footer, .menu {
+        display: none;
+    }
+    
+    nav {
+        height: fit-content;
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        top:97vh;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: center;
+        color: var(--violet-clair);
+        background-color:black;
+      }
+
+      nav i {
+        margin-top: 0.7em;
+        margin-bottom: 1em;
+      }
+
+      
+ 
+
+}

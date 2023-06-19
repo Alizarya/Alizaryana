@@ -704,3 +704,7 @@ form {
   .microDonnees{
     display: none;
   }
+
+  .hidden {
+    display: none;
+  }
