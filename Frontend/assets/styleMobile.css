@@ -6,6 +6,7 @@
 
    section {
        height: fit-content;
+       
     }
 
     section, .full-section, .page, .full-section:before, .menu:before{
@@ -16,6 +17,9 @@
     header, footer, .menu {
         display: none;
     }
+
+    /*_________________________________*/
+      /* GESTION DE LA NAVIGATION */
     
     nav {
         height: fit-content;
@@ -40,7 +44,209 @@
         display: none;
       }
 
-      
- 
+      /*_________________________________*/
+      /* GESTION DES PAGES */
 
+      .page {
+        width: 85%;
+        margin: auto;
+      }
+
+
+      /*_________________________________*/
+      /* GESTION DE LA PAGE D'ACCUEIL */
+
+      #accueil .page aside {
+        display: none
+      }
+
+      #accueil .page article  {
+        width: 100%;
+        margin: auto;
+        align-items: center;
+      }
+
+      #accueil h2 {
+        font-size: clamp(5vh, 5vw, 90px);
+      }
+
+      #accueil h3 {
+        width: 100%;
+        text-align: center;
+      } 
+
+      #accueil h3::after {
+        background-image: url("../assets/images/fox/fox2.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50% auto;
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: 70%; 
+        margin-top: 1em;
+      }
+      
+      /*_________________________________*/
+      /* GESTION DES PAGES "NORMALES" */
+
+      .page-header{
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .page-header h1{
+        font-size: 32px;
+        margin-top: 10px;
+      }
+
+      .page-header h2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw; /* Utilise 100% de la largeur de la fenêtre */
+        margin-top: 65px;
+        padding: 3px;
+        font-size: 22px;
+      }
+
+      .accroche {
+        margin-top: 60px;
+        font-size: 16px;
+      }
+
+      .page-main, .page-main article, .page-main aside{
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .page-main {
+        margin-top: 2em;
+      }
+      
+      h3 {
+        font-size: 28px;
+      }
+
+    /*_________________________________*/
+    /* GESTION DE LA PAGE PRESTATIONS */
+
+    .services {
+        width: 100%;
+        text-align: center;
+    }
+
+    .outils, .outils-box, .outils-box-text, .outils-box--zoom {
+        width: 100%;
+    }
+
+    .outils {
+        margin: 1em auto;
+    }
+
+    .outils-box-text {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    /*_________________________________*/
+    /* GESTION DE LA PAGE PORTEFOLIO */
+
+    #portefolio .page-main {
+        gap: 0; 
+      }
+    
+      #portefolio article {
+        width: 100%; 
+        flex-wrap: wrap; 
+        flex-direction: column;
+      }
+    
+      .projet-image, .projet-text {
+        height: auto; 
+        transition: none; 
+      }
+    
+      .projet-text {
+        opacity: 1; 
+        transform: none; 
+      }
+
+      .projet-image {
+        order: 2; 
+        max-width: 100%;
+        height: 90px;
+        object-fit: cover;
+        object-position: top;
+        margin-bottom: 1em;
+      }
+      
+      #portefolio h3 {
+        order: 1; 
+        text-align: center;
+     }
+
+      .projet-text {
+        order: 3; 
+        margin-bottom: 2em;
+    }
+
+    /*_________________________________*/
+    /* GESTION DE LA PAGE CREACTIONS */
+
+
+    /*_________________________________*/
+    /* GESTION DE LA PAGE RECOMMANDATIONS */
+
+    #recommandations .page-main{
+        gap: 3em;
+        row-gap: 2em;
+      }
+
+    .reco {
+        width: 100%;
+        row-gap: 1em;
+    }
+
+    .reco i {
+        font-size: 50px;
+    }
+
+    .reco p {
+        text-align: center;
+      }
+
+    /*_________________________________*/
+    /* GESTION DE LA PAGE CONTACT */
+
+      form {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .form1, .form2{
+        width: 100%;
+      }
+
+      .form2-footer {
+        flex-direction: column;
+      }
+
+      .form1 input, .form2 textarea {
+        width: 94%;
+      }
+      
+      .form2 button {
+        width: 50%;
+      }
+
+      #returnedMessage {
+        display: none;
+      }
+
+      .mentions {
+        margin-bottom: 2em;
+      }
 }
