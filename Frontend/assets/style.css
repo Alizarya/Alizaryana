@@ -189,7 +189,8 @@ footer {
 }
 
 header img, .menu-header img, .--link i {
-  width: 40px;
+  width: clamp(2.2vw, 3.7vh, 40px);
+  height: clamp(2.2vw, 3.7vh, 40px);
 }
 
 .copyright {
@@ -515,10 +516,12 @@ width: 70%;
 }
 
 .projet-image {
-  width: 100%;
+  width: 95%;
   height: 500px; /* Hauteur initiale de l'image */
   object-fit: cover;
   transition: height 1s; /* Transition de la hauteur */
+  border: 5px solid var(--violet-clair);
+  padding: 0.5em;
 }
 
 .projet-text {
@@ -533,7 +536,7 @@ width: 70%;
 
 #portefolio article:hover .projet-image {
   height: clamp(14vh, 14vh, 150px); /* Hauteur de l'image au survol */
-  border-bottom: 5px solid var(--jaune);
+  border: 5px solid var(--jaune);
 }
 
 #portefolio article:hover .projet-text {
