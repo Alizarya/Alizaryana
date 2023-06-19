@@ -55,11 +55,7 @@ const images = galleryContainer.getElementsByTagName("img");
 
 function scrollImages() {
   currentPosition += scrollSpeed;
-  galleryContainer.scrollLeft = currentPosition;
-
-  if (currentPosition >= galleryContainer.scrollWidth / 2) {
-    currentPosition = 0; // Revenir au début une fois qu'on a atteint la fin
-  }
+  galleryContainer.scrollLeft = currentPosition % galleryContainer.scrollWidth;
 
   animationId = requestAnimationFrame(scrollImages);
 }

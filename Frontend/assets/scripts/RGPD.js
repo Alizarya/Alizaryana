@@ -3,8 +3,22 @@ const rgpdElement = document.getElementById("RGPD");
 
 // Fonction pour ouvrir le popup
 function openPopup() {
+  // Dimensions du popup
+  const popupWidth = 1100;
+  const popupHeight = 500;
+
+  // Calculer les coordonnées pour centrer le popup
+  const screenWidth = window.screen.width;
+  const screenHeight = window.screen.height;
+  const popupLeft = (screenWidth - popupWidth) / 2;
+  const popupTop = (screenHeight - popupHeight) / 2;
+
   // Créer le popup
-  const popup = window.open("", "Popup", "width=1100,height=500");
+  const popup = window.open(
+    "",
+    "Popup",
+    `width=${popupWidth},height=${popupHeight},left=${popupLeft},top=${popupTop}`
+  );
 
   // Charger le contenu du popup avec les styles CSS
   popup.document.write(`
