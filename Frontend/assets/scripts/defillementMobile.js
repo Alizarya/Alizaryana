@@ -11,19 +11,19 @@ $(document).ready(function () {
     let startX = 0;
     let distX = 0;
 
-    $("body").on("touchstart", function (event) {
+    $(document).on("touchstart", function (event) {
       startX = event.originalEvent.touches[0].clientX;
     });
 
-    $("body").on("touchmove", function (event) {
-      distX = event.originalEvent.touches[0].clientX - startX;
+    $(document).on("touchmove", function (event) {
+      distX = startX - event.originalEvent.touches[0].clientX;
     });
 
-    $("body").on("touchend", function (event) {
-      if (distX > 50) {
-        showPreviousSection();
-      } else if (distX < -50) {
+    $(document).on("touchend", function (event) {
+      if (distX < -100) {
         showNextSection();
+      } else if (distX > 100) {
+        showPreviousSection();
       }
 
       startX = 0;
@@ -38,14 +38,14 @@ $(document).ready(function () {
 
     function showPreviousSection() {
       let currentIndex = $("section:not(.hidden)").index();
-      let prevIndex =
-        (currentIndex - 1 + $("section").length) % $("section").length;
+      let prevIndex = (currentIndex + 1) % $("section").length;
       showSection(prevIndex);
     }
 
     function showNextSection() {
       let currentIndex = $("section:not(.hidden)").index();
-      let nextIndex = (currentIndex + 1) % $("section").length;
+      let nextIndex =
+        (currentIndex - 1 + $("section").length) % $("section").length;
       showSection(nextIndex);
     }
 

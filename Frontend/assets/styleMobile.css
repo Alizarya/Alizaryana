@@ -196,6 +196,25 @@
     /*_________________________________*/
     /* GESTION DE LA PAGE CREACTIONS */
 
+    #creations .page-main {
+      margin-left:0;
+    }
+
+
+    #creations .page-main i {
+      display: none;
+    }
+
+    .page-main--gallery {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-main--gallery img {
+      max-width: 92%;
+      text-align: center;
+    }
 
     /*_________________________________*/
     /* GESTION DE LA PAGE RECOMMANDATIONS */
