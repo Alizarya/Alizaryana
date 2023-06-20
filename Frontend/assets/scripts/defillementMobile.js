@@ -3,16 +3,51 @@ $(document).ready(function () {
     $("section:not(#accueil)").addClass("hidden");
 
     $("nav i").click(function () {
-      // Récupérer l'index de l'icône cliquée
       let index = $(this).index();
-
-      // Afficher la section correspondante en fonction de l'index
-      $("section").addClass("hidden");
-      $("section").eq(index).removeClass("hidden");
-
-      // Mettre à jour les couleurs de la barre de navigation
+      showSection(index);
       updateNavColors(index);
     });
+
+    let startX = 0;
+    let distX = 0;
+
+    $("body").on("touchstart", function (event) {
+      startX = event.originalEvent.touches[0].clientX;
+    });
+
+    $("body").on("touchmove", function (event) {
+      distX = event.originalEvent.touches[0].clientX - startX;
+    });
+
+    $("body").on("touchend", function (event) {
+      if (distX > 50) {
+        showPreviousSection();
+      } else if (distX < -50) {
+        showNextSection();
+      }
+
+      startX = 0;
+      distX = 0;
+    });
+
+    function showSection(index) {
+      $("section").addClass("hidden");
+      $("section").eq(index).removeClass("hidden");
+      updateActiveIcon(index);
+    }
+
+    function showPreviousSection() {
+      let currentIndex = $("section:not(.hidden)").index();
+      let prevIndex =
+        (currentIndex - 1 + $("section").length) % $("section").length;
+      showSection(prevIndex);
+    }
+
+    function showNextSection() {
+      let currentIndex = $("section:not(.hidden)").index();
+      let nextIndex = (currentIndex + 1) % $("section").length;
+      showSection(nextIndex);
+    }
 
     function updateNavColors(index) {
       let nav = $("nav");
@@ -25,8 +60,13 @@ $(document).ready(function () {
       }
     }
 
-    // Initialiser les couleurs de la barre de navigation avec la section actuellement affichée
+    function updateActiveIcon(index) {
+      $("nav i").removeClass("active");
+      $("nav i").eq(index).addClass("active");
+    }
+
     let currentIndex = $("section:not(.hidden)").index();
     updateNavColors(currentIndex);
+    updateActiveIcon(currentIndex);
   }
 });
