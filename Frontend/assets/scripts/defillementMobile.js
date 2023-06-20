@@ -2,11 +2,6 @@ $(document).ready(function () {
   if (window.matchMedia("(max-width: 48em)").matches) {
     $("section:not(#accueil)").addClass("hidden");
 
-    // Gestion du clic sur l'icône de section précédente
-    $("#previousSection").click(function () {
-      showPreviousSection();
-    });
-
     $("nav i").click(function () {
       // Récupérer l'index de l'icône cliquée
       let index = $(this).index();
