@@ -522,6 +522,7 @@ width: 70%;
   transition: height 1s; /* Transition de la hauteur */
   border: 5px solid var(--violet-clair);
   padding: 0.5em;
+  object-position: top;
 }
 
 .projet-text {
@@ -537,6 +538,7 @@ width: 70%;
 #portefolio article:hover .projet-image {
   height: clamp(14vh, 14vh, 150px); /* Hauteur de l'image au survol */
   border: 5px solid var(--jaune);
+  object-position: top;
 }
 
 #portefolio article:hover .projet-text {
