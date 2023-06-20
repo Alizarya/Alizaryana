@@ -43,6 +43,8 @@ fastify.post("/contact", async (request, reply) => {
   }
 });
 
+// Redirection vers la page d'erreur
+
 // Démarrage du serveur
 const start = async () => {
   try {

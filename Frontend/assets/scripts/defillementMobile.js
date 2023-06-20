@@ -2,53 +2,62 @@ $(document).ready(function () {
   if (window.matchMedia("(max-width: 48em)").matches) {
     $("section:not(#accueil)").addClass("hidden");
 
+    // Gestion du clic sur l'icône de section précédente
+    $("#previousSection").click(function () {
+      showPreviousSection();
+    });
+
     $("nav i").click(function () {
+      // Récupérer l'index de l'icône cliquée
       let index = $(this).index();
-      showSection(index);
+
+      // Afficher la section correspondante en fonction de l'index
+      $("section").addClass("hidden");
+      $("section").eq(index).removeClass("hidden");
+
+      // Mettre à jour les couleurs de la barre de navigation
       updateNavColors(index);
+
+      // Mettre à jour la classe active de l'icône cliquée
+      updateActiveIcon(index);
     });
 
-    let startX = 0;
-    let distX = 0;
-
-    $(document).on("touchstart", function (event) {
-      startX = event.originalEvent.touches[0].clientX;
-    });
-
-    $(document).on("touchmove", function (event) {
-      distX = startX - event.originalEvent.touches[0].clientX;
-    });
-
-    $(document).on("touchend", function (event) {
-      if (distX < -100) {
-        showNextSection();
-      } else if (distX > 100) {
+    // Gestion du swipe
+    $("body").swipe({
+      swipeLeft: function () {
         showPreviousSection();
-      }
-
-      startX = 0;
-      distX = 0;
+      },
+      swipeRight: function () {
+        showNextSection();
+      },
+      threshold: 100,
     });
 
+    // Gestion de l'affichage de section
     function showSection(index) {
       $("section").addClass("hidden");
       $("section").eq(index).removeClass("hidden");
       updateActiveIcon(index);
     }
 
+    // Fonction d'affichage de la section précédente
     function showPreviousSection() {
       let currentIndex = $("section:not(.hidden)").index();
-      let prevIndex = (currentIndex + 1) % $("section").length;
+      let prevIndex =
+        (currentIndex - 1 + $("section").length) % $("section").length;
+
       showSection(prevIndex);
     }
 
+    // Fonction d'affichage de la section suivante
     function showNextSection() {
       let currentIndex = $("section:not(.hidden)").index();
-      let nextIndex =
-        (currentIndex - 1 + $("section").length) % $("section").length;
+      let nextIndex = (currentIndex + 3) % $("section").length;
+
       showSection(nextIndex);
     }
 
+    // Mettre les bonnes couleurs à la nav bar
     function updateNavColors(index) {
       let nav = $("nav");
       if (index % 2 === 1) {
@@ -60,13 +69,17 @@ $(document).ready(function () {
       }
     }
 
+    // Mettre la bonne couleur à l'icone de la nav
     function updateActiveIcon(index) {
       $("nav i").removeClass("active");
       $("nav i").eq(index).addClass("active");
     }
 
+    // Initialiser les couleurs de la barre de navigation avec la section affichée
     let currentIndex = $("section:not(.hidden)").index();
     updateNavColors(currentIndex);
-    updateActiveIcon(currentIndex);
+
+    // Ajouter la classe active à la première icône
+    $("nav i").eq(0).addClass("active");
   }
 });
