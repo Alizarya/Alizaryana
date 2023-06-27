@@ -5,8 +5,7 @@
     }
 
    section {
-       height: fit-content;
-       
+       height: fit-content;  
     }
 
     section, .full-section, .page, .full-section:before, .menu:before{
@@ -64,7 +63,7 @@
 
       #accueil .page article  {
         width: 100%;
-        margin: auto;
+        margin: 1em auto;
         align-items: center;
       }
 
@@ -144,7 +143,12 @@
 
     .outils {
         margin: 1em auto;
-    }
+      }
+
+      .outils-box {
+        height: 8em;
+      }
+      
 
     .outils-box-text {
         display: flex;

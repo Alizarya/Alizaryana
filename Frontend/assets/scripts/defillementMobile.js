@@ -18,6 +18,10 @@ $(document).ready(function () {
 
       // Mettre à jour les couleurs de la barre de navigation
       updateNavColors(index);
+
+      // Faire défiler vers le haut de la section
+      let section = $("section").eq(index)[0];
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     function updateNavColors(index) {
@@ -49,6 +53,10 @@ $(document).ready(function () {
       // Mettre à jour les couleurs de la barre de navigation
       updateNavColors(previousIndex);
       updateNavColors(nextIndex);
+
+      // Faire défiler vers le haut de la section précédente
+      let section = $("section").eq(previousIndex)[0];
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     // Fonction pour afficher la section suivante
@@ -62,7 +70,12 @@ $(document).ready(function () {
       // Mettre à jour les couleurs de la barre de navigation
       updateNavColors(nextIndex);
       updateNavColors(nextIndex);
+
+      // Faire défiler vers le haut de la section suivante
+      let section = $("section").eq(nextIndex)[0];
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+
     // Variables pour suivre les coordonnées du toucher
     let touchStartX = 0;
     let touchEndX = 0;

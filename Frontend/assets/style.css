@@ -456,6 +456,7 @@ width: 70%;
 
 .services {
   width: 50%;
+  margin-bottom: 1.5em;
 }
 
 .outils {
@@ -628,6 +629,7 @@ font-size: clamp(8vh, 4.5vw, 90px);
 
 .reco h3 {
   justify-self: end;
+  text-align: center;
 }
 
 /*____________________________________*/
