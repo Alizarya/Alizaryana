@@ -147,9 +147,16 @@ section, .menu{
 
 .menu-footer img {
   width: clamp(2.2vw, 3.7vh, 40px);
-  height: clamp(2.2vw, 3.7vh, 40px);;
+  height: clamp(2.2vw, 3.7vh, 40px);
   cursor: pointer;
+  transition: transform 0.3s;
 }
+
+.menu-footer img:hover {
+  transform: scale(1.1);
+}
+
+
 
 /*____________________________________*/
 /* GESTION DU HEADER ET DU FOOTER */
@@ -174,7 +181,7 @@ header i, footer i, .menu-header i, .outils-logo i{
   transition: transform 0.3s; 
 }
 
-footer i:hover, header i:hover, nav i:hover, .menu-header i:hover, .outils-logo i:hover, header img{
+footer i:hover, header i:hover, nav i:hover, .menu-header i:hover, .outils-logo i:hover, header img:hover{
   color: var(--jaune);
   transform: scale(1.1);
   cursor: pointer;
@@ -186,6 +193,10 @@ header{
 
 footer {
   bottom: 3%;
+}
+
+header img {
+  transition: transform 0.3s; 
 }
 
 header img, .menu-header img, .--link i {

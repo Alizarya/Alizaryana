@@ -13,3 +13,17 @@ menuIcon.addEventListener("click", () => {
 menuClose.addEventListener("click", () => {
   menuDiv.classList.remove("show");
 });
+
+// GESTION DE L'ICONE TEAPOT
+const teapot = document.getElementById("teapot");
+
+// Au survol de la souris
+teapot.addEventListener("mouseover", function () {
+  this.src = "./assets/images/icones/teapot-jaune.png";
+});
+
+// Lorsque la souris quitte l'élément
+teapot.addEventListener("mouseout", function () {
+  this.src =
+    "./assets/images/icones/teapot-black-side-view-shape-svgrepo-com.png";
+});
