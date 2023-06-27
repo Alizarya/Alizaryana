@@ -174,7 +174,7 @@ header i, footer i, .menu-header i, .outils-logo i{
   transition: transform 0.3s; 
 }
 
-footer i:hover, header i:hover, nav i:hover, .menu-header i:hover, .outils-logo i:hover{
+footer i:hover, header i:hover, nav i:hover, .menu-header i:hover, .outils-logo i:hover, header img{
   color: var(--jaune);
   transform: scale(1.1);
   cursor: pointer;

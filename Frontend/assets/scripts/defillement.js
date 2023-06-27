@@ -78,6 +78,25 @@ $(document).ready(function () {
       }
     }
 
+    // Gestion du clic sur l'image du logo pour revenir à la section 0
+    $("#logoAlizaryana").on("click", function () {
+      scrollToSection(0);
+    });
+
+    // Gestion du survol de la souris sur le logo pour changer l'image
+    $("#logoAlizaryana").on("mouseenter", function () {
+      $(this).attr("src", "./assets/images/logos/logo-jaune.png");
+    });
+
+    // Gestion de la sortie de la souris du logo pour rétablir l'image précédente
+    $("#logoAlizaryana").on("mouseleave", function () {
+      if (currentSection % 2 === 1) {
+        $(this).attr("src", "./assets/images/logos/logo-bleu.png");
+      } else {
+        $(this).attr("src", "./assets/images/logos/logo-violet.png");
+      }
+    });
+
     // Gestion de l'affichage de l'élément #scroll
 
     // Gestion du clic sur l'icone de scroll
