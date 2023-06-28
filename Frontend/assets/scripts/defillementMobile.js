@@ -18,10 +18,6 @@ $(document).ready(function () {
 
       // Mettre à jour les couleurs de la barre de navigation
       updateNavColors(index);
-
-      // Faire défiler vers le haut de la section
-      let section = $("section").eq(index)[0];
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     function updateNavColors(index) {
@@ -52,11 +48,17 @@ $(document).ready(function () {
 
       // Mettre à jour les couleurs de la barre de navigation
       updateNavColors(previousIndex);
-      updateNavColors(nextIndex);
 
-      // Faire défiler vers le haut de la section précédente
-      let section = $("section").eq(previousIndex)[0];
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Faire défiler vers le haut de la section précédente avec effet de transition
+      let section = $("section").eq(previousIndex);
+      section
+        .addClass("arrive")
+        .css({ left: "-100%" })
+        .animate({ left: 0 }, 500);
+      section
+        .siblings("section")
+        .removeClass("arrive")
+        .animate({ left: "100%" }, 500);
     }
 
     // Fonction pour afficher la section suivante
@@ -69,16 +71,18 @@ $(document).ready(function () {
 
       // Mettre à jour les couleurs de la barre de navigation
       updateNavColors(nextIndex);
-      updateNavColors(nextIndex);
 
-      // Faire défiler vers le haut de la section suivante
-      let section = $("section").eq(nextIndex)[0];
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Faire défiler vers le haut de la section suivante avec effet de transition
+      let section = $("section").eq(nextIndex);
+      section
+        .addClass("arrive")
+        .css({ left: "100%" })
+        .animate({ left: 0 }, 500);
+      section
+        .siblings("section")
+        .removeClass("arrive")
+        .animate({ left: "-100%" }, 500);
     }
-
-    // Variables pour suivre les coordonnées du toucher
-    let touchStartX = 0;
-    let touchEndX = 0;
 
     // Écoute de l'événement touchstart
     $(document).on("touchstart", function (event) {
