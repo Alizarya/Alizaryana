@@ -14,10 +14,14 @@ $(document).ready(function () {
 
       // Afficher la section correspondante en fonction de l'index
       $("section").addClass("hidden");
-      $("section").eq(index).removeClass("hidden");
+      let section = $("section").eq(index);
+      section.removeClass("hidden");
 
       // Mettre à jour les couleurs de la barre de navigation
       updateNavColors(index);
+
+      // Faire défiler jusqu'au haut de la section sélectionnée
+      $("html, body").scrollTop(section.offset().top);
     });
 
     function updateNavColors(index) {
@@ -59,6 +63,9 @@ $(document).ready(function () {
         .siblings("section")
         .removeClass("arrive")
         .animate({ left: "100%" }, 500);
+
+      // Défiler jusqu'au haut de la nouvelle section
+      $("html, body").scrollTop(section.offset().top);
     }
 
     // Fonction pour afficher la section suivante
@@ -82,6 +89,9 @@ $(document).ready(function () {
         .siblings("section")
         .removeClass("arrive")
         .animate({ left: "-100%" }, 500);
+
+      // Défiler jusqu'au haut de la nouvelle section
+      $("html, body").scrollTop(section.offset().top);
     }
 
     // Écoute de l'événement touchstart
