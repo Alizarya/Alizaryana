@@ -1,0 +1,62 @@
+:root {
+    /* Variables des couleurs */
+    --violet-fonce: #551860;
+    --violet-clair: #e4cae9;
+    --bleu-fonce: #244a68;
+    --bleu-clair: #d8eaee;
+    --jaune: #ffce2f;
+    --beige: #fbe6e4;
+  
+    /* Variables des polices */
+    --oswald: 'Oswald', sans-serif;
+    --roboto: 'Roboto', sans-serif;
+  }
+
+  .erreur404 {
+    background-color: var(--bleu-fonce);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80vh;
+    width: 95vw;
+  }
+  
+.erreur404 img {
+    width: 50%;
+}
+
+.erreur404-text{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.erreur404 h1 {
+    font-size: clamp(8vh, 4.5vw, 90px);
+}
+
+.erreur404 a {
+    color: var(--beige);
+    font-size: clamp(3vh, 1vw, 30px);
+    text-transform: none;
+    text-decoration: none;
+}
+
+.erreur404 a:hover {
+    color: var(--jaune);
+    text-decoration: underline;
+}
+
+
+.erreur404 i{
+    margin-right: 0.5em;
+}
+
+.erreur404-copyright {
+color: var(--beige);
+}

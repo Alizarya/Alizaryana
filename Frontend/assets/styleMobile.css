@@ -1,12 +1,25 @@
 /* En dessous de 768px */
 @media (max-width: 48em) {
-    body {
-        overflow-y: scroll;
-    }
-
-   section {
-      height: fit-content;  
-
+  
+  /* Pour les navigateurs basés sur WebKit (Chrome, Safari, etc.) */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Pour les navigateurs basés sur Firefox */
+  html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  body {
+    overflow-y: scroll;
+    width: 100vw;
+  }
+  
+  section {
+    height: fit-content;  
+    
     }
 
     section, .full-section, .page, .full-section:before, .menu:before{
@@ -25,15 +38,16 @@
         height: fit-content;
         display: flex;
         flex-direction: row;
-        position: fixed;
-        top:98vh;
+        position:fixed;
+        top: calc(100% - 1.5em);
         bottom: 0;
         left: 0;
         right: 0;
         justify-content: center;
         color: var(--violet-clair);
         background-color:var(--violet-fonce);
-        padding: 0.5 0;
+        padding:0 0.5em;       
+        transform: translateY(-1.5em);
       }
 
       nav i {
@@ -54,6 +68,7 @@
         width: 85%;
         margin: auto;
       }
+
 
 
       /*_________________________________*/
@@ -96,6 +111,9 @@
       .page-header{
         max-width: 100%;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       .page-header h1{
@@ -104,17 +122,13 @@
       }
 
       .page-header h2 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw; /* Utilise 100% de la largeur de la fenêtre */
-        margin-top: 65px;
-        padding: 3px;
+        padding-bottom: 3px;
         font-size: 22px;
+        margin: 0.5em 0;
       }
 
       .accroche {
-        margin-top: 60px;
+        margin-top: 0;
         font-size: 16px;
       }
 
