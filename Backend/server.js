@@ -44,6 +44,9 @@ fastify.post("/contact", async (request, reply) => {
 });
 
 // Redirection vers la page d'erreur
+fastify.setNotFoundHandler((request, reply) => {
+  reply.code(404).type("text/html").sendFile("erreur.html"); // Chemin vers votre fichier erreur.html
+});
 
 // Démarrage du serveur
 const start = async () => {
