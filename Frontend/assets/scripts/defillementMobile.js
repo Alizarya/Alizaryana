@@ -53,17 +53,6 @@ $(document).ready(function () {
       // Mettre à jour les couleurs de la barre de navigation
       updateNavColors(previousIndex);
 
-      // Faire défiler vers le haut de la section précédente avec effet de transition
-      let section = $("section").eq(previousIndex);
-      section
-        .addClass("arrive")
-        .css({ left: "-100%" })
-        .animate({ left: 0 }, 500);
-      section
-        .siblings("section")
-        .removeClass("arrive")
-        .animate({ left: "100%" }, 500);
-
       // Défiler jusqu'au haut de la nouvelle section
       $("html, body").scrollTop(section.offset().top);
     }
@@ -78,17 +67,6 @@ $(document).ready(function () {
 
       // Mettre à jour les couleurs de la barre de navigation
       updateNavColors(nextIndex);
-
-      // Faire défiler vers le haut de la section suivante avec effet de transition
-      let section = $("section").eq(nextIndex);
-      section
-        .addClass("arrive")
-        .css({ left: "100%" })
-        .animate({ left: 0 }, 500);
-      section
-        .siblings("section")
-        .removeClass("arrive")
-        .animate({ left: "-100%" }, 500);
 
       // Défiler jusqu'au haut de la nouvelle section
       $("html, body").scrollTop(section.offset().top);
